@@ -8,20 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		870AF1C11DE55BFC006FF8EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870AF1C01DE55BFC006FF8EF /* AppDelegate.swift */; };
-		870AF1C31DE55BFC006FF8EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870AF1C21DE55BFC006FF8EF /* ViewController.swift */; };
+		870AF1C31DE55BFC006FF8EF /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870AF1C21DE55BFC006FF8EF /* CameraVC.swift */; };
 		870AF1C61DE55BFC006FF8EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870AF1C41DE55BFC006FF8EF /* Main.storyboard */; };
 		870AF1C81DE55BFC006FF8EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870AF1C71DE55BFC006FF8EF /* Assets.xcassets */; };
 		870AF1CB1DE55BFC006FF8EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870AF1C91DE55BFC006FF8EF /* LaunchScreen.storyboard */; };
+		870AF1D71DE55CB0006FF8EF /* AAPLPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 870AF1D41DE55CB0006FF8EF /* AAPLPreviewView.m */; };
+		870AF1D81DE55CB0006FF8EF /* AAPLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870AF1D61DE55CB0006FF8EF /* AAPLCameraViewController.m */; };
+		874BEA0F1DF4E7ED00ABD71E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874BEA0E1DF4E7ED00ABD71E /* AuthService.swift */; };
+		87E634411DEE6CE100669CA1 /* logic.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 87E634401DEE6CE100669CA1 /* logic.rtf */; };
+		87F8D0F81DEFF38F0077C446 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F8D0F71DEFF38F0077C446 /* GoogleService-Info.plist */; };
+		87FFB2AC1DF0DD2B006ED7E1 /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FFB2AB1DF0DD2B006ED7E1 /* RoundTextField.swift */; };
+		87FFB2AE1DF13401006ED7E1 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FFB2AD1DF13401006ED7E1 /* RoundButton.swift */; };
+		87FFB2B01DF1395F006ED7E1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FFB2AF1DF1395F006ED7E1 /* LoginVC.swift */; };
+		C49194AEBC72F247B38ACEE7 /* Pods_DevChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAFC0D6B1CBC7557100889A /* Pods_DevChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0871C349D8DABFE9FD4D9847 /* Pods-DevChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.debug.xcconfig"; sourceTree = "<group>"; };
+		4656A1602D322A51C3F2F6C1 /* Pods-DevChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.release.xcconfig"; sourceTree = "<group>"; };
 		870AF1BD1DE55BFC006FF8EF /* DevChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		870AF1C01DE55BFC006FF8EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		870AF1C21DE55BFC006FF8EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		870AF1C21DE55BFC006FF8EF /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		870AF1C51DE55BFC006FF8EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		870AF1C71DE55BFC006FF8EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		870AF1CA1DE55BFC006FF8EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		870AF1CC1DE55BFC006FF8EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		870AF1D21DE55CB0006FF8EF /* DevChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DevChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		870AF1D31DE55CB0006FF8EF /* AAPLPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPreviewView.h; sourceTree = "<group>"; };
+		870AF1D41DE55CB0006FF8EF /* AAPLPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPreviewView.m; sourceTree = "<group>"; };
+		870AF1D51DE55CB0006FF8EF /* AAPLCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCameraViewController.h; sourceTree = "<group>"; };
+		870AF1D61DE55CB0006FF8EF /* AAPLCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCameraViewController.m; sourceTree = "<group>"; };
+		874BEA0E1DF4E7ED00ABD71E /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		87E6343F1DEE6C5200669CA1 /* AAPLCameraVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCameraVCDelegate.h; sourceTree = "<group>"; };
+		87E634401DEE6CE100669CA1 /* logic.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = logic.rtf; sourceTree = "<group>"; };
+		87F8D0F71DEFF38F0077C446 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87FFB2AB1DF0DD2B006ED7E1 /* RoundTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		87FFB2AD1DF13401006ED7E1 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		87FFB2AF1DF1395F006ED7E1 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		ECAFC0D6B1CBC7557100889A /* Pods_DevChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C49194AEBC72F247B38ACEE7 /* Pods_DevChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +65,8 @@
 			children = (
 				870AF1BF1DE55BFC006FF8EF /* DevChat */,
 				870AF1BE1DE55BFC006FF8EF /* Products */,
+				D7E578BA7D4AEB0C8E28B457 /* Pods */,
+				9C7F90FCAA189CEC4C8B9B5A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +81,75 @@
 		870AF1BF1DE55BFC006FF8EF /* DevChat */ = {
 			isa = PBXGroup;
 			children = (
+				874BEA0D1DF4E7AE00ABD71E /* Services */,
+				87E6343C1DEE6B0E00669CA1 /* Protocols */,
+				870AF1DA1DE55CC0006FF8EF /* View */,
+				870AF1D91DE55CB4006FF8EF /* Controller */,
 				870AF1C01DE55BFC006FF8EF /* AppDelegate.swift */,
-				870AF1C21DE55BFC006FF8EF /* ViewController.swift */,
 				870AF1C41DE55BFC006FF8EF /* Main.storyboard */,
+				87E634401DEE6CE100669CA1 /* logic.rtf */,
 				870AF1C71DE55BFC006FF8EF /* Assets.xcassets */,
 				870AF1C91DE55BFC006FF8EF /* LaunchScreen.storyboard */,
 				870AF1CC1DE55BFC006FF8EF /* Info.plist */,
+				87F8D0F71DEFF38F0077C446 /* GoogleService-Info.plist */,
+				870AF1D21DE55CB0006FF8EF /* DevChat-Bridging-Header.h */,
 			);
 			path = DevChat;
+			sourceTree = "<group>";
+		};
+		870AF1D91DE55CB4006FF8EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				870AF1D51DE55CB0006FF8EF /* AAPLCameraViewController.h */,
+				870AF1D61DE55CB0006FF8EF /* AAPLCameraViewController.m */,
+				870AF1C21DE55BFC006FF8EF /* CameraVC.swift */,
+				87FFB2AF1DF1395F006ED7E1 /* LoginVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		870AF1DA1DE55CC0006FF8EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				870AF1D31DE55CB0006FF8EF /* AAPLPreviewView.h */,
+				870AF1D41DE55CB0006FF8EF /* AAPLPreviewView.m */,
+				87FFB2AB1DF0DD2B006ED7E1 /* RoundTextField.swift */,
+				87FFB2AD1DF13401006ED7E1 /* RoundButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		874BEA0D1DF4E7AE00ABD71E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				874BEA0E1DF4E7ED00ABD71E /* AuthService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		87E6343C1DEE6B0E00669CA1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				87E6343F1DEE6C5200669CA1 /* AAPLCameraVCDelegate.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		9C7F90FCAA189CEC4C8B9B5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECAFC0D6B1CBC7557100889A /* Pods_DevChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7E578BA7D4AEB0C8E28B457 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0871C349D8DABFE9FD4D9847 /* Pods-DevChat.debug.xcconfig */,
+				4656A1602D322A51C3F2F6C1 /* Pods-DevChat.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 870AF1CF1DE55BFC006FF8EF /* Build configuration list for PBXNativeTarget "DevChat" */;
 			buildPhases = (
+				4B583DF7C89A050A3BDAC845 /* [CP] Check Pods Manifest.lock */,
 				870AF1B91DE55BFC006FF8EF /* Sources */,
 				870AF1BA1DE55BFC006FF8EF /* Frameworks */,
 				870AF1BB1DE55BFC006FF8EF /* Resources */,
+				03E385E172909A542740A57F /* [CP] Embed Pods Frameworks */,
+				1DC5DE917381126A9EC96FD5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +188,7 @@
 					870AF1BC1DE55BFC006FF8EF = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = PC6ZE95SDH;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,6 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				870AF1CB1DE55BFC006FF8EF /* LaunchScreen.storyboard in Resources */,
+				87E634411DEE6CE100669CA1 /* logic.rtf in Resources */,
+				87F8D0F81DEFF38F0077C446 /* GoogleService-Info.plist in Resources */,
 				870AF1C81DE55BFC006FF8EF /* Assets.xcassets in Resources */,
 				870AF1C61DE55BFC006FF8EF /* Main.storyboard in Resources */,
 			);
@@ -132,13 +226,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03E385E172909A542740A57F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevChat/Pods-DevChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DC5DE917381126A9EC96FD5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevChat/Pods-DevChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B583DF7C89A050A3BDAC845 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		870AF1B91DE55BFC006FF8EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				870AF1C31DE55BFC006FF8EF /* ViewController.swift in Sources */,
+				87FFB2AE1DF13401006ED7E1 /* RoundButton.swift in Sources */,
+				870AF1C31DE55BFC006FF8EF /* CameraVC.swift in Sources */,
+				87FFB2B01DF1395F006ED7E1 /* LoginVC.swift in Sources */,
 				870AF1C11DE55BFC006FF8EF /* AppDelegate.swift in Sources */,
+				87FFB2AC1DF0DD2B006ED7E1 /* RoundTextField.swift in Sources */,
+				870AF1D71DE55CB0006FF8EF /* AAPLPreviewView.m in Sources */,
+				870AF1D81DE55CB0006FF8EF /* AAPLCameraViewController.m in Sources */,
+				874BEA0F1DF4E7ED00ABD71E /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,26 +407,33 @@
 		};
 		870AF1D01DE55BFC006FF8EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0871C349D8DABFE9FD4D9847 /* Pods-DevChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PC6ZE95SDH;
 				INFOPLIST_FILE = DevChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgenyvlasov.DevChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevChat/DevChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		870AF1D11DE55BFC006FF8EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4656A1602D322A51C3F2F6C1 /* Pods-DevChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PC6ZE95SDH;
 				INFOPLIST_FILE = DevChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgenyvlasov.DevChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevChat/DevChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -302,6 +457,7 @@
 				870AF1D11DE55BFC006FF8EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

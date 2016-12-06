@@ -1,0 +1,76 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\margl720\margr720\margb720\margt720\vieww9000\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \expnd0\expndtw0\kerning0
+\
+1. We got an AVCam project from Apple, (its objC). Transferred it with a "bridge"(it includes all the .h files)\
+2. Created a swift class, made it a child of AAPLCameraViewController. \
+3. Created/added a new view, changed its class to AAPLPreviewView. \
+4. Changing the "previewView" in AAPLCameraViewController" to "_previewView". Add another previewView to CameraVC .  Equate it to old one. \
+5. Putting _previewView of AAPLCameraViewController in the .h file for them to be visible. \
+6. Creating new IBActions in CameraVC and calling "record" and "switch" methods from AAPLCameraViewController.m. \
+(for them to be visible they should be in the .h file)\
+7. Give permission in the .plist file to use Mic, Camera and Photo Library.  \
+8. Created an ObjC protocol AAPLCameraVCDelegate. Method "
+\f1\fs28 \kerning1\expnd0\expndtw0 \CocoaLigature0 shouldEnableRecordUI
+\f0\fs36 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (BOOL)" and "
+\f1\fs28 \kerning1\expnd0\expndtw0 \CocoaLigature0 shouldEnableCameraUI(BOOL)
+\f0\fs36 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ". \
+9. Include it in AAPLCameraVC.m and mention it in .h file. (some weird way - we forward declared it so then we can use it with a generic "id" type.)\
+10. Refactor all code in .m file and use methods from the protocol. \
+Changing all the methods that hides/enables control buttons. \
+11. Include our protocol to our bridging file. Import our protocol in CameraVC. \
+12. Implementing those functions in the CameraVC. \
+13. Connecting the Firebase pod. \
+14. Connecting the Firebase/Storage pod. \
+15. Went to Firebase, and started to put some test data for database architecture. \
+Here is how we structured our database: \
+\'95 2 main branches - "users" and "pull requests"(messages). \
+\'95 Each user has a uniq id (array). \
+\'95 In the array we have dictionaries "incomingPullRequests", "outgoingPullRequests" and "profile". incomingPR and outgoingPR stores uniq id of requests and BOOL values "true". \
+\'95 "profile" is a dictionary with first and last names of the user. \
+\'95 "pullRequests" is an array of dictionaries that stores all messages objects with a unique ids. \
+\'95 Each "message" dictionary has keys "mediaURL" with link to FB storage with media file itself, "message" if we have a simple text message with media file, "openCount" for number of opens, "textSnipet" for text that goes on top of the video, "userID" that holds user's unique id who posted that message, and a dictionary "watchers" - to keep track of which users have access to this message. \
+16.  Creating a "logIn" view. \
+17. Creating a new swift file for custom textView. Using @IBDesignable and @IBInspectable for changes to appear on our storyboard (interface builder). \
+Some work with placeholder color. \
+18.  	Creating a new swift file for custom Button. Copying most of the code from RoundTextField. \
+19. Setting up authentication with FB. Installing the Firebase/Auth pod to our project. \
+In viewDidAppear check if the user is logged in, if not -> show the login view.  \
+Created LoginVC , made it to pop up modely. \
+20.  Created LoginVC file, added IBOutlets for emailField and passwordField. Added IBAction for sign in. In IBAction check if we have text entered, if yes, call log in services, if not, present an alert (created that alert). \
+21. We can't call the login services in a VC. For that reason we create a new file "AuthService" - it will be a singleton. Declare only one private instance. \
+22. Crate "login" method that takes strings of email and password. Call for it in LoginVC.\
+23. Writing the login func. Started with default login method from FB. Inside of it, handling the error that the FB might give us. \
+In our UX, if the user is not found, we will create an account for him (which is bed UX, if the user misspelled username he will have another account created)\
+24. If we successfully created a new user, we make sure we have uniq user id, and if yes, we sign in. \
+25. We also have to handle other types of FB errors. We crate a separate method that takes an error as argument. Inside, we get the code of error and then run a switch with diff cases. We check only invalidEmail and wrongPassword.\
+26. We want to show user the error. But we can't have it in our AuthService. So for that we create a separate completion handler.  We will be able to call for that block any time. \
+27. We use our new block as argument for "login" method, as well as "handleFirebaseError".  We change how we use "login" method in LoginVC. \
+Error: Problem with naming arguments in completion handler. Autocomplete doesn't appear when calling that completion block. \
+The fix was in the "Xcode 8" update video. We do use the "_" before argument labels, when declaring a closure. And when using the closure, we don't use the labels at all, and write argument values. \
+28.  We list several errors that we might get in "handleFirebaseError". \
+Start using this method in "login" method, where we have "error != nil". After unsuccessful "createUser" and "signIn". When passing parameters to "handleFirebaseError" we pass existing error and as completion block - the same what came as argument of  parent "login" method.\
+Blocks are just like methods. Except they can be passed as arguments inside other methods. \
+29. In LoginVC, when sending the "login" method, we unfold the completion block. Inside of it we going to check what king of errMsg we have and then show that message to the user in an alert view. \
+If we don't have any errMsg, we dismiss current LoginVC and go straight to CameraVC.  \
+30. \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+ }
