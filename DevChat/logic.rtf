@@ -59,7 +59,105 @@ Start using this method in "login" method, where we have "error != nil". After u
 Blocks are just like methods. Except they can be passed as arguments inside other methods. \
 29. In LoginVC, when sending the "login" method, we unfold the completion block. Inside of it we going to check what king of errMsg we have and then show that message to the user in an alert view. \
 If we don't have any errMsg, we dismiss current LoginVC and go straight to CameraVC.  \
-30. \
+30. Saving users to our FB database. \
+Installing FB database pod. \
+Creating a new file "DataService" in Services. \
+It will be a singleton, so we create a "private static let _instance = DataService( )"\
+31. For FB database we will use properties. For saving data we will use functions. \
+We create a main reference to our app's database. \
+We create a func "saveUser: " to save users (based on uniq user id that FB will give us)\
+Create a simple dictionary, with empty values for keys firstName and lastName. Then write that dictionary into FB with .child( ).child( ).child( ).setValue( ). If childs don't exist, they will be created. \
+32. We run the "saveUser" in the "login" method, right after the user was created. \
+We can see in FB database, how a new user is created. \
+33. Start creating UsersVC - a table view with friends to whom we will send messages. \
+We put a search bar and a table view. Inside, we put a table view cell for custom cell. \
+We create UserCell of type UITableViewCell. Declare "firstNameLbl" label as IBOutlet. \
+34. In interface builder, call our cell as UserCell and give it an identifier "UserCell". \
+35. Declare a tableView IBOutlet in UserVC. \
+Make our tableView "allowsMultipleSelection" so we can send to multiple people. \
+36. Create func setCheckmark for UserCell, we will be showing a special image on a cell's accessoryView when it is selected. \
+37.  Create func updateUI that will be called each time the "cellForRow..." is called. We will be showing user's usernames in there. \
+For that we will have to call our FB, then get dictionary, then put info in a "User" class. \
+=> we create a new model class "User". And we make it a "struct" because it is better for raw data types. \
+38. Declare 2 properties: firstName and uid. Create an init method. \
+Update our updateUI method to have "User" as an argument. \
+39. In UsersVC, we create and initialize an empty array of Users. To fill it, we have to parse the FB data. \
+40. Because we will be working only with the "users" branch in our FB database, we create a separate reference to it in DataService. \
+41. Instead of calling names of child in database, it is better to put them in a constant. \
+42. Back in UserVC, in ViewDidLoad, we call for our database data "... .observeSingleEvent(of: ....)" - ( this method works only if we need to download data once. If we need to refresh, different method/logic.)\
+43. We start parsing (unfolding) data from "snapshot". Snapshot is - all users that we have. It is a dictionary <String, AnyObject>. Almost all objects from FB are dictionaries of type <String, AnyObject>. \
+44.  Now we are running a "for (key, value) in" loop, aka "tuple". This will iterate through each user, using uniq ids as "key", and create dictionaries for each user, using the "value". \
+Each "value" - is a Dictionary with user's data. \
+45. We grab whatever value is under the "profile" key, and make it a dictionary. \
+46. We grab whatever value is under the "firstName" key, and we know that it is a String. \
+47. We are almost ready to create our user object. From its "init" method, we remember that it takes uid and firstName. \
+Therefore, we grab current uid from "key", that we have from each step of the loop. \
+Then create a "user" and add it to the "users" array. \
+48. After we done parsing, we "reload" our data. \
+49. Create our cell in "cellForRowAt indexPath: ", taking user out of the array of users. \
+50. In "didSelectRowAt" we want to grab the cell and change the checkmark state "selected" to true. Then add that user to a dictionary of selected users (we create that private dictionary of selected users.) The key for that user will be its own "uid". \
+51. For the "didDeselectRowAt" method, we will perform similar but opposite - we will change the setCheckmark state to "false" and remove that user from the "selectedUsers" dictionary by setting value to "nil".\
+52. We don't want videos to be saved in out code. We go to AAPLCameraViewController and find method "captureOutput: DidFinish..." and comment out the part after "if (success)"\
+53. Since we disabled functionality that was performed when a video finishes recording, we need to create a func that will be performed instead - a callback. We write those new func in AAPLCameraVCDelegate.h protocol. "videoRecordingComplete" and it takes an argument a url to where the file will be stored (iphone memory) .\
+We also create a func , if recording failed, if we successfully take a pic (with an arg as NSData) and if it failed to take a pic. \
+We will call those func in AAPLCameraViewController.m where we commented out code for video saving. The arg NSURL is already passed within those methods as arg. \
+But where is the implementation of those methods? \
+We will call photos func in "snapStillImage".  \
+We comment out code that saves pics to memory. \
+54. We implement protocol func in CameraVC. \
+In success cases we will load the UsersVC screen. \
+55. In interface builder we add navigation bar to UsersVC. \
+Add Bar Button Item to the nav bar. Change its image. \
+56. Implement an IBAction in UsersVC. \
+57. Drag from CameraVC to UsersVC and select "show (push)"\
+58. We need to override a segue because we need to pass info from CameraVC to UsersVC\
+Inside, we grab a ref to UserVC ...\
+Now we going back to our unfinished protocol methods. \
+59. We call "performSegue" func, and sender is a dictionary with key "videoURL" and value "videoURL" that came in func arg. \
+Same in the snapshot code. \
+60. Now in "prepareForSegue" we can continue and get info out of "sender", since we made it as dictionaries in "performSegue". \
+We get the value out of the dict that is under the key "videoURL" (for the video)\
+Now we should store the data we got, but UsersVC doesn't have properties yet. We create them. \
+61. Since they are private, for there computed properties, something weird happens, (instead of simple "return _videoURL") with "set" and "get". \
+62. Now we pass value in "prepareForSegue"\
+63. For the image, we continue same logic with an "else" statement. \
+64. In UserVC we disable "send" button unless at least one contact is selected. Disabling it in "viewDidLoad", then enabling in "didSelectRow" and check if users are selected in "didDeselectRow". \
+65. In "sentPRBTNPressed" code will save video to FB and then give us back a URL that we will send in outgoing and incoming pull requests. \
+In DataService we import "FBStorage". We create a ref to Storage. \
+66. Create ref to images and videos folders in storage. \
+67. In sentPRBTNPressed we check if we have the URL, that should've been passed in segue. \
+When recording, file might be saved to the same storage on iPhone and files will be overwritten => creating uniq id for each video.\
+68. We create a ref to the storage and create a path with uniq id url.\
+Creating a "putFile" for our url with a completion handler. Once it is finishes - it will return a downloadURL inside of meta. We will be sending those to users. Dismiss current VC. \
+69. Now we should do the same with photos (_snapData)\
+Since it is data, not a url, we use different method "put". \
+Now we need to save that url to database (not the file itself) and let other people to receive that data. \
+70. We create func for sending urls to users in DataService. \
+It has arg: sender uid, a dictionary of users to whom that message addressed, files url and a text snippet. \
+We create a loop that takes all the users to whom the message is. \
+We create a dict with mediaURL, sender uid, number of message opens and recipients array. - That is our pull request. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\i \cf0 \kerning1\expnd0\expndtw0 ***To where the data is saved? - somewhere in AAPLCameraViewController. As far as our code - in CameraVC we have methods videoRecordingComplete (with arg videoURL to the shot video) and snapshotTaken (with arg snapshotData of images). Both of them are called in AAPLCameraViewController file. ****
+\i0 \expnd0\expndtw0\kerning0
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Now we need to save that pull request in our FB and create a new branch. \
+(.childByAutoID( ). - will create a new child branch with a uniq id). \
+We save that dict. \
+71. Now we will call for our new func right in the IBAction "sendPRBtnPressed" in UsersVC. \
+There, after it is done saving to the FB with "put", in the completion handler we get that file's url and pass it as arg to sendMediaPullRequest. \
+We also need to get other arguments of that func. \
+\
+\
+\
+\
+\
+\
+\
+\
+ \
+\
 \
 \
 \

@@ -33,7 +33,7 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
         
         guard FIRAuth.auth()?.currentUser != nil else {
             performSegue(withIdentifier: "LoginVC", sender: nil)
-            
+        
             return
         }
     
@@ -66,5 +66,44 @@ class CameraVC: AAPLCameraViewController, AAPLCameraVCDelegate {
         print("Can start recording")
         
     }
+    
+    func videoRecordingComplete(_ videoURL: URL!) {
+        performSegue(withIdentifier: "UsersVC", sender: ["videoURL": videoURL])
+        
+        
+    }
+    
+    func videoRecordingFailed() {
+        
+        
+    }
+    
+    func snapshotTaken(_ snapshotData: Data!) {
+        performSegue(withIdentifier: "SenderVC", sender: ["snapshotData":snapshotData])
+        
+    }
+    
+    func snapshotFailed() {
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let usersVC = segue.destination as? UsersVC {
+            if let videoDict = sender as? Dictionary<String,URL>{
+                let url = videoDict["videoURL"]
+                usersVC.videoURL = url
+            } else if let snapDict = sender as? Dictionary<String,Data> {
+                let snapData = snapDict["snapshotData"]
+                usersVC.imageData = snapData
+            }
+        }
+    }
 }
+
+
+
+
+
+
 

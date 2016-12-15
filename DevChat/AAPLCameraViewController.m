@@ -570,6 +570,10 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 			if ( imageDataSampleBuffer ) {
 				// The sample buffer is not retained. Create image data before saving the still image to the photo library asynchronously.
 				NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+                
+                [self.delegate snapshotTaken:imageData];
+                
+                /*
 				[PHPhotoLibrary requestAuthorization:^( PHAuthorizationStatus status ) {
 					if ( status == PHAuthorizationStatusAuthorized ) {
 						// To preserve the metadata, we create an asset from the JPEG NSData representation.
@@ -610,9 +614,14 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 						}
 					}
 				}];
+                
+                */
 			}
 			else {
-				NSLog( @"Could not capture still image: %@", error );
+
+                [self.delegate snapshotFailed];
+                
+                NSLog( @"Could not capture still image: %@", error );
 			}
 		}];
 	} );
@@ -658,8 +667,13 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 	if ( error ) {
 		NSLog( @"Movie file finishing error: %@", error );
 		success = [error.userInfo[AVErrorRecordingSuccessfullyFinishedKey] boolValue];
+        [self.delegate videoRecordingFailed];
 	}
 	if ( success ) {
+        
+        [self.delegate videoRecordingComplete:outputFileURL];
+        
+        /*
 		// Check authorization status.
 		[PHPhotoLibrary requestAuthorization:^( PHAuthorizationStatus status ) {
 			if ( status == PHAuthorizationStatusAuthorized ) {
@@ -687,8 +701,12 @@ typedef NS_ENUM( NSInteger, AVCamSetupResult ) {
 				cleanup();
 			}
 		}];
-	}
+	*/
+        
+    }
 	else {
+        
+        [self.delegate videoRecordingFailed];
 		cleanup();
 	}
 
